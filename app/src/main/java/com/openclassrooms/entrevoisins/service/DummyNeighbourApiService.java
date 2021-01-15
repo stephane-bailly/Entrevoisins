@@ -1,7 +1,10 @@
 package com.openclassrooms.entrevoisins.service;
 
+import android.util.Log;
+
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,11 +24,37 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     }
 
     /**
+     *  Boucle sur la liste des voisins (neighbours) et ajoute ceux avec l'attribut favorite a true dans la
+     *  liste des voisins favoris ( favoritesNeighbours )
+     * @return la liste des voisins avec l'attribut isFavorite a true
+     */
+    @Override
+    public List<Neighbour> getFavoritesNeighbours() {
+        List<Neighbour> favoritesNeighbours = new ArrayList<Neighbour>();
+        for (Neighbour voisin : neighbours){
+            if (voisin.isFavorite()){
+                favoritesNeighbours.add(voisin);
+            }
+        }
+        return favoritesNeighbours;
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
     public void deleteNeighbour(Neighbour neighbour) {
         neighbours.remove(neighbour);
+    }
+
+    @Override
+    public void SwitchNeighbourIsFavorite(Neighbour neighbour) {
+        if (neighbour.isFavorite()) {
+            neighbour.setFavorite(false) ;
+        }
+        else{
+            neighbour.setFavorite(true);
+        }
     }
 
     /**

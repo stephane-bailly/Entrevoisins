@@ -1,11 +1,15 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.CalendarContract;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +17,7 @@ import android.view.ViewGroup;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
+import com.openclassrooms.entrevoisins.events.ShowNeighbourDetailsEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
@@ -28,13 +33,15 @@ public class NeighbourFragment extends Fragment {
     private List<Neighbour> mNeighbours;
     private RecyclerView mRecyclerView;
 
-
     /**
      * Create and return a new instance
      * @return @{@link NeighbourFragment}
      */
-    public static NeighbourFragment newInstance() {
+    public static NeighbourFragment newInstance(int position) {
         NeighbourFragment fragment = new NeighbourFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt("Position", position);
+        fragment.setArguments(bundle);
         return fragment;
     }
 
@@ -59,7 +66,16 @@ public class NeighbourFragment extends Fragment {
      * Init the List of neighbours
      */
     private void initList() {
-        mNeighbours = mApiService.getNeighbours();
+
+        Log.d("AAAAAAAAAAAAA", "initList: ");
+        int tabPosition = getArguments().getInt("Position");
+        if(tabPosition == 0){
+            mNeighbours = mApiService.getNeighbours();
+        }
+        else {
+            mNeighbours = mApiService.getFavoritesNeighbours();
+        }
+
         mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
     }
 
@@ -89,5 +105,14 @@ public class NeighbourFragment extends Fragment {
     public void onDeleteNeighbour(DeleteNeighbourEvent event) {
         mApiService.deleteNeighbour(event.neighbour);
         initList();
+    }
+    @Subscribe
+    public void onShowNeighbourDetailsEvent(ShowNeighbourDetailsEvent event){
+        // on lance l'activité qui affiche le détail du voisin sur lequel on a cliqué
+        // l'objet neighbour est envoyé via l'intent car neighbour implémente parcelable
+        Intent intent = new Intent(this.getContext(),IdentityActivity.class);
+        intent.putExtra("Neighbour",event.voisin);
+        ActivityCompat.startActivity(this.getContext(),intent,null);
+
     }
 }

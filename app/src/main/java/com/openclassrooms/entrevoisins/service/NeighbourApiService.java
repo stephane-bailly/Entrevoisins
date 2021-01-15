@@ -17,10 +17,22 @@ public interface NeighbourApiService {
     List<Neighbour> getNeighbours();
 
     /**
+     * Get all my favorites Neighbours
+     * @return {@link List}
+     */
+    List<Neighbour> getFavoritesNeighbours();
+
+    /**
      * Deletes a neighbour
      * @param neighbour
      */
     void deleteNeighbour(Neighbour neighbour);
+
+    /**
+     * switch neigbhour isfavorite value
+     * @param neighbour
+     */
+    void SwitchNeighbourIsFavorite(Neighbour neighbour);
 
     /**
      * Create a neighbour

@@ -43,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/tab_favorites_title" />
 
+
         </android.support.design.widget.TabLayout>
     </android.support.design.widget.AppBarLayout>
 
@@ -60,6 +61,6 @@
         android:layout_margin="@dimen/fab_margin"
         android:contentDescription="@string/add_neighbour"
         app:backgroundTint="@color/colorPrimary"
-        app:srcCompat="@drawable/ic_person_add_white_24dp" />
+        android:src="@drawable/ic_person_add_white_24dp" />
 
 </android.support.design.widget.CoordinatorLayout>

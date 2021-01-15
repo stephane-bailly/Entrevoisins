@@ -4,4 +4,27 @@
     <string name="tab_favorites_title">Favorites</string>
     <string name="activity_new_neighbour">New neighbour</string>
     <string name="add_neighbour">add_neighbour</string>
+    <string name="avatar_picture">image avatar</string>
+    <string name="phone_picture">image téléphone</string>
+    <string name="phone_number">+33 6 86 57 90 14</string>
+    <string name="address_picture">image adresse</string>
+    <string name="facebook_picture">image facebook</string>
+    <string name="facebook_address">wwww.facebook.fr/caroline</string>
+    <string name="my_name">Caroline</string>
+    <string name="my_address">Saint pierre du mont à 5km</string>
+    <string name="about_me">A propos de moi</string>
+    <string name="info_message">Bonjour ! je souhaiterais faire de la marche nordique.
+        Pas initiée, je recherche une ou plusieurs personnes susceptibles de m\'accompagner.</string>
+    <string name="addRemoveToFavorite">addRemoveToFavorite</string>
+    <string name="BackButton">BackButton</string>
+    <string name="AvatarPicture">AvatarPicture</string>
+    <string name="AddToFavorite">AddToFavorite</string>
+    <string name="NomVoisin">NomVoisin</string>
+    <string name="imageDescription">imageDescription</string>
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="NomPhoto">Caroline</string>
+
+
 </resources>
