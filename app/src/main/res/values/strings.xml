@@ -25,6 +25,8 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="NomPhoto">Caroline</string>
+    <string name="AvatarImageDescritption">Avatar image</string>
+    <string name="DeleteImageDescritption">Delete image</string>
 
 
 </resources>

@@ -2,10 +2,7 @@ package com.openclassrooms.entrevoisins.events;
 
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
-/**
- * Event fired when a user click on a List item
- */
-public class ShowNeighbourDetailsEvent {
+public class SwitchNeighbourFavoriteStatusEvent {
 
     /**
      * Neighbour to show details
@@ -17,8 +14,8 @@ public class ShowNeighbourDetailsEvent {
      * @param neighbour
      */
 
-
-    public ShowNeighbourDetailsEvent(Neighbour neighbour) {
+    public SwitchNeighbourFavoriteStatusEvent(Neighbour neighbour) {
         this.voisin = neighbour;
-     }
+    }
+
 }
