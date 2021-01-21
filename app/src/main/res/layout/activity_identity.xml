@@ -1,243 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ConstraintLayoutMain"
+    android:id="@+id/NeighbourProfileActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:foregroundTint="#FFFFFF"
+    android:fadeScrollbars="true"
+    android:fitsSystemWindows="true"
+    android:isScrollContainer="true"
     tools:context=".ui.neighbour_list.IdentityActivity">
 
-     <ImageView
-        android:id="@+id/imageView_Avatar"
-        android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:contentDescription="@string/AvatarPicture"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_account" />
-
-    <ImageButton
-        android:id="@+id/imageButton_Back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="15dp"
-        android:background="@null"
-        android:contentDescription="@string/BackButton"
-        android:onClick="fermer"
-        app:layout_constrainedHeight="false"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_arrow_back" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton_AddToFavorite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:backgroundTint="#D6E0F2"
-        android:clickable="true"
-        android:contentDescription="@string/AddToFavorite"
-        android:focusable="true"
-        app:layout_constraintBottom_toBottomOf="@id/imageView_Avatar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView_Avatar"
-        app:rippleColor="#CFDBEF"
-        app:srcCompat="@drawable/ic_star_yellow_24dp" />
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/CardView_1"
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/CardView_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView_Avatar">
+        android:background="@color/white"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.constraint.ConstraintLayout
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView_NomVoisin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/my_name"
-                android:textColor="#857D7D"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <View
-                android:id="@+id/view_BarreHorizontale"
-                android:layout_width="wrap_content"
-                android:layout_height="1dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="10dp"
-                android:background="@color/cardview_dark_background"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_NomVoisin" />
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
-                android:id="@+id/imageView_Position"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:contentDescription="@string/imageDescription"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view_BarreHorizontale"
-                app:srcCompat="@drawable/position" />
-
-            <ImageView
-                android:id="@+id/imageView_Internet"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="30dp"
-                android:contentDescription="@string/imageDescription"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView_Phone"
-                app:srcCompat="@drawable/internet" />
-
-            <ImageView
-                android:id="@+id/imageView_Phone"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="30dp"
-                android:contentDescription="@string/imageDescription"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView_Position"
-                app:srcCompat="@drawable/telephone" />
-
-            <TextView
-                android:id="@+id/textView_Adresse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:text="@string/my_address"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/imageView_Position"
-                app:layout_constraintTop_toTopOf="@+id/imageView_Position" />
-
-            <TextView
-                android:id="@+id/textView_Telephone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:text="@string/phone_number"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/imageView_Phone"
-                app:layout_constraintTop_toTopOf="@+id/imageView_Phone" />
-
-            <TextView
-                android:id="@+id/textView_Facebook"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginBottom="20dp"
-                android:text="@string/facebook_address"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView_Internet"
-                app:layout_constraintTop_toTopOf="@+id/imageView_Internet" />
-
-        </android.support.constraint.ConstraintLayout>
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/CardView_2"
-
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/CardView_1">
-
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView_AboutMe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
-                android:paddingBottom="5dp"
-                android:text="@string/about_me"
-                android:textColor="#857D7D"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <View
-                android:id="@+id/view_BarreHorizontale2"
-                android:layout_width="wrap_content"
-                android:layout_height="1dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="10dp"
-                android:background="@color/cardview_dark_background"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textView_AboutMe" />
-
-            <TextView
-                android:id="@+id/textView_Message"
+                android:id="@+id/imageView_Avatar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp"
-                android:text="@string/info_message"
-                android:textSize="18sp"
+                android:layout_height="280dp"
+                android:contentDescription="@string/AvatarPicture"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_AboutMe" />
-        </android.support.constraint.ConstraintLayout>
-    </android.support.v7.widget.CardView>
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_account"
+                app:layout_collapseMode="parallax"/>
 
-    <TextView
-        android:id="@+id/textView_NomPhoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginBottom="20dp"
-        android:text="@string/NomPhoto"
-        android:textColor="#B59C9C"
-        android:textColorHint="#D8CECE"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView_Avatar"
-        app:layout_constraintStart_toStartOf="parent" />
+            <ImageButton
+                android:id="@+id/imageButton_Back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@null"
+                android:contentDescription="@string/BackButton"
+                android:onClick="fermer"
+                app:layout_constrainedHeight="false"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_back"
+                app:layout_collapseMode="parallax"/>
 
-</android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/textView_NomPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="230dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/NomPhoto"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textStyle="bold"
+                android:textColor="#B59C9C"
+                android:textColorHint="#D8CECE"/>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+    <include layout="@layout/content_scrolling" />
+    <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton_AddToFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="#D6E0F2"
+            android:clickable="true"
+            android:contentDescription="@string/AddToFavorite"
+            android:focusable="true"
+            app:layout_anchor="@id/app_bar"
+            app:layout_anchorGravity="bottom|end"
+            app:rippleColor="#CFDBEF"
+            app:srcCompat="@drawable/ic_star_yellow_24dp" />
+
+ </android.support.design.widget.CoordinatorLayout>

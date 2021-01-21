@@ -113,7 +113,7 @@ public class NeighboursListTest {
 
         // perfom click on favorites tab
         onView(withContentDescription("Favorites")).perform(click());
-        // check 4 favorites are returned ( favorites return from default favoritesNeighbours list)
+        // check 2 favorites are returned ( favorites return from default favoritesNeighbours list)
         onView(allOf(ViewMatchers.withId(R.id.list_neighbours),isDisplayed())).check(withItemCount(2));
 
         // Perform click on the first item
