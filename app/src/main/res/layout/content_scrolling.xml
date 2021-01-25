@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ui.neighbour_list.IdentityActivity"
     tools:showIn="@layout/activity_identity">
@@ -11,7 +11,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <android.support.v7.widget.CardView
             android:id="@+id/CardView_1"
@@ -28,7 +28,7 @@
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/textView_NomVoisin"
@@ -187,6 +187,5 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView_AboutMe" />
             </android.support.constraint.ConstraintLayout>
         </android.support.v7.widget.CardView>
-
     </android.support.constraint.ConstraintLayout>
 </android.support.v4.widget.NestedScrollView>

@@ -1,6 +1,7 @@
 
 package com.openclassrooms.entrevoisins.neighbour_list;
 
+import android.support.test.espresso.Espresso;
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
@@ -77,7 +78,7 @@ public class NeighboursListTest {
        // perform a click on first item
         onView(allOf(ViewMatchers.withId(R.id.list_neighbours),isDisplayed())).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
         // check if the details view is shown
-        onView(ViewMatchers.withId(R.id.ConstraintLayoutMain)).check(matches(isDisplayed()));
+        onView(ViewMatchers.withId(R.id.NeighbourProfileActivity)).check(matches(isDisplayed()));
     }
 
     // 2em test : on clique sur un élément de la liste, l'écran de détail est lancé , le textView indiquant le nom du voisin est bien rempli
@@ -122,8 +123,8 @@ public class NeighboursListTest {
         onView(ViewMatchers.withId(R.id.textView_NomVoisin)).check(matches(withText("Jack")));
 
         // return back to favorites tab
-        onView(allOf(ViewMatchers.withId(R.id.imageButton_Back),isDisplayed())).perform(click());
-
+        Espresso.pressBack();
+        
         // Perform click on the second item
         onView(allOf(ViewMatchers.withId(R.id.list_neighbours),isDisplayed())).perform(RecyclerViewActions.actionOnItemAtPosition(1, click()));
         // check if TextViewText match second neighbour name ("Elodie")

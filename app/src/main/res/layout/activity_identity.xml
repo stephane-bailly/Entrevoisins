@@ -37,49 +37,44 @@
                 app:srcCompat="@drawable/ic_account"
                 app:layout_collapseMode="parallax"/>
 
-            <ImageButton
-                android:id="@+id/imageButton_Back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:background="@null"
-                android:contentDescription="@string/BackButton"
-                android:onClick="fermer"
-                app:layout_constrainedHeight="false"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_arrow_back"
-                app:layout_collapseMode="parallax"/>
-
             <TextView
                 android:id="@+id/textView_NomPhoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="230dp"
                 android:layout_marginBottom="20dp"
                 android:text="@string/NomPhoto"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textStyle="bold"
-                android:textColor="#B59C9C"
-                android:textColorHint="#D8CECE"/>
+                android:textColor="@color/white"
+                android:textColorHint="#D8CECE"
+                android:textStyle="bold" />
 
-        </android.support.design.widget.CollapsingToolbarLayout>
-    </android.support.design.widget.AppBarLayout>
-    <include layout="@layout/content_scrolling" />
-    <android.support.design.widget.FloatingActionButton
-            android:id="@+id/floatingActionButton_AddToFavorite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:backgroundTint="#D6E0F2"
-            android:clickable="true"
-            android:contentDescription="@string/AddToFavorite"
-            android:focusable="true"
-            app:layout_anchor="@id/app_bar"
-            app:layout_anchorGravity="bottom|end"
-            app:rippleColor="#CFDBEF"
-            app:srcCompat="@drawable/ic_star_yellow_24dp" />
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:navigationIcon="@drawable/retour"/>
 
- </android.support.design.widget.CoordinatorLayout>
+    </android.support.design.widget.CollapsingToolbarLayout>
+</android.support.design.widget.AppBarLayout>
+<include layout="@layout/content_scrolling" />
+
+<android.support.design.widget.FloatingActionButton
+    android:id="@+id/floatingActionButton_AddToFavorite"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="10dp"
+    android:backgroundTint="#FFFFFF"
+    android:clickable="true"
+    android:contentDescription="@string/AddToFavorite"
+    android:focusable="true"
+    app:backgroundTint="#FFFFFF"
+    app:layout_anchor="@id/app_bar"
+    app:layout_anchorGravity="bottom|end"
+    app:rippleColor="#CFDBEF"
+    app:srcCompat="@drawable/ic_star_yellow_24dp" />
+
+</android.support.design.widget.CoordinatorLayout>
